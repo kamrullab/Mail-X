@@ -52,8 +52,8 @@ export async function exportMailboxToMbox(env: CloudflareEnv, mailboxId: string)
 				? [`References: ${message.references.split(/\s+/).filter(Boolean).map((id) => `<${id}>`).join(" ")}`]
 				: []),
 			`Subject: ${escapeHeader(message.subject)}`,
-			`X-Mailflare-Direction: ${escapeHeader(message.direction)}`,
-			`X-Mailflare-Status: ${escapeHeader(message.status)}`,
+			`X-Mail-X-Direction: ${escapeHeader(message.direction)}`,
+			`X-Mail-X-Status: ${escapeHeader(message.status)}`,
 			"MIME-Version: 1.0",
 			`Content-Type: ${contentType}; charset=utf-8`,
 			"Content-Transfer-Encoding: 8bit",

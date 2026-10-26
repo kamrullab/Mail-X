@@ -59,7 +59,7 @@ export async function notifyUsersOfNewMessage(
 	await Promise.allSettled([
 		...userIds.map((userId) => {
 			const hub = env.REALTIME.getByName(userId);
-			return hub.fetch("https://mailflare-realtime/notify", {
+			return hub.fetch("https://mail-x-realtime/notify", {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify(payload),

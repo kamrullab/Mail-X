@@ -36,10 +36,10 @@ export default {
 				method: "POST",
 				headers: {
 					"Content-Type": "message/rfc822",
-					"X-Mailflare-From": message.from,
-					"X-Mailflare-To": message.to,
-					"X-Mailflare-Headers": JSON.stringify(headers),
-					"X-Mailflare-Signature": await sign(env.INBOUND_WEBHOOK_SECRET, raw, message.from, message.to),
+					"X-Mail-X-From": message.from,
+					"X-Mail-X-To": message.to,
+					"X-Mail-X-Headers": JSON.stringify(headers),
+					"X-Mail-X-Signature": await sign(env.INBOUND_WEBHOOK_SECRET, raw, message.from, message.to),
 				},
 				body: raw,
 			});
