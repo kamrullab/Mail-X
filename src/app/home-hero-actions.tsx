@@ -11,7 +11,7 @@ export function HomeHeroActions() {
 	const hasUser = !!useHomeAuth();
 
 	return (
-		<div className="mt-8 flex flex-col gap-3 sm:flex-row">
+		<div className="mt-6 flex flex-col gap-3 sm:flex-row">
 			<Button size="lg" asChild className="rounded-full px-6">
 				<Link href={hasUser ? "/inbox" : "/setup"}>
 					{hasUser ? t("home.openDashboard") : t("home.createAccount")}

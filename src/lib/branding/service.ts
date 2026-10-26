@@ -20,9 +20,13 @@ export async function getBranding(env: CloudflareEnv): Promise<Branding> {
 			.from(appSettings)
 			.where(eq(appSettings.id, APP_SETTINGS_ID))
 			.limit(1);
+		const storedAppName = settings?.appName?.trim();
+		const appName = storedAppName?.toLowerCase() === "mailflare"
+			? DEFAULT_APP_NAME
+			: storedAppName || DEFAULT_APP_NAME;
 		return {
-			appName: settings?.appName || DEFAULT_APP_NAME,
-			hasCustomIcon: !!settings?.iconKey,
+			appName,
+			hasCustomIcon: storedAppName?.toLowerCase() === "mailflare" ? false : !!settings?.iconKey,
 			canCustomizeBranding: true,
 		};
 	} catch {

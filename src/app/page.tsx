@@ -26,7 +26,7 @@ export default async function HomePage() {
   return (
     <HomeAuthProvider>
     <div className="min-h-dvh bg-[#f6f8fc] text-neutral-900">
-      <header className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <header className="mx-auto flex h-14 w-full max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link
           href="/"
           className="flex items-center gap-3"
@@ -55,29 +55,29 @@ export default async function HomePage() {
       </header>
 
       <main>
-        <section className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 pb-12 pt-8 sm:px-6 md:pt-16 lg:grid-cols-[0.86fr_1.14fr] lg:px-8">
+        <section className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-4 py-6 sm:px-6 lg:min-h-[calc(100dvh-3.5rem)] lg:grid-cols-[0.82fr_1.18fr] lg:items-center lg:px-8 lg:py-5">
           <div className="flex max-w-2xl flex-col justify-center">
-            <div className="mb-6 flex w-fit items-center gap-2 text-sm font-medium text-blue-800">
+            <div className="mb-4 flex w-fit items-center gap-2 text-sm font-medium text-blue-800">
               <ShieldCheck className="h-4 w-4" />
               {t("home.badge")}
             </div>
-            <h1 className="max-w-[12ch] text-5xl font-semibold leading-[0.96] tracking-tight text-neutral-950 sm:text-6xl lg:text-7xl">
+            <h1 className="max-w-[12ch] text-4xl font-semibold leading-[0.98] tracking-tight text-neutral-950 sm:text-5xl lg:text-6xl">
               {t("home.headline")}
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-neutral-600">
+            <p className="mt-5 max-w-xl text-base leading-7 text-neutral-600 lg:text-[17px]">
               {t("home.subheadline")}
             </p>
             <HomeHeroActions />
           </div>
 
-          <div className="relative min-h-[520px] overflow-hidden rounded-[2rem] border border-neutral-100 shadow-[0_24px_70px_-45px_rgba(30,64,175,0.55)]">
-            <div className="grid h-full min-h-[520px] grid-cols-[176px_1fr] bg-white">
-              <aside className="hidden flex-col gap-2 bg-[#f6f8fc] px-3 py-5 sm:flex">
-                <div className="mb-4 flex items-center gap-3 px-3 text-neutral-700">
+          <div className="relative h-[clamp(390px,67dvh,490px)] overflow-hidden rounded-[1.75rem] border border-neutral-100 shadow-[0_24px_70px_-45px_rgba(30,64,175,0.55)]">
+            <div className="grid h-full grid-cols-[156px_1fr] bg-white">
+              <aside className="hidden flex-col gap-1.5 bg-[#f6f8fc] px-3 py-4 sm:flex">
+                <div className="mb-3 flex items-center gap-3 px-3 text-neutral-700">
                   <Inbox className="h-5 w-5" />
                   <span className="font-semibold">{t("home.mockMail")}</span>
                 </div>
-                <div className="mb-3 flex h-12 w-fit items-center gap-2 rounded-2xl bg-blue-100 px-5 text-sm font-semibold text-blue-950 shadow-sm">
+                <div className="mb-2 flex h-11 w-fit items-center gap-2 rounded-2xl bg-blue-100 px-4 text-sm font-semibold text-blue-950 shadow-sm">
                   <Mail className="h-4 w-4" />
                   {t("navigation.compose")}
                 </div>
@@ -107,20 +107,20 @@ export default async function HomePage() {
               </aside>
 
               <div className="col-span-2 flex min-w-0 flex-col sm:col-span-1">
-                <div className="flex h-16 items-center gap-3 bg-[#f6f8fc] px-4">
-                  <div className="flex h-12 flex-1 items-center gap-3 rounded-full bg-[#eaf1fb] px-4 text-neutral-600">
+                <div className="flex h-14 items-center gap-3 bg-[#f6f8fc] px-4">
+                  <div className="flex h-10 flex-1 items-center gap-3 rounded-full bg-[#eaf1fb] px-4 text-neutral-600">
                     <Search className="h-5 w-5" />
                     <span className="text-[15px]">{t("search.mail")}</span>
                   </div>
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue-600 text-white">
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-blue-600 text-white">
                     <Mail className="h-4 w-4" />
                   </div>
                 </div>
 
                 <div className="flex min-h-0 flex-1 flex-col overflow-hidden rounded-tl-3xl bg-white">
-                  <div className="flex h-14 items-center justify-between border-b border-neutral-200 px-6">
+                  <div className="flex h-13 items-center justify-between border-b border-neutral-200 px-5">
                     <div className="flex items-center gap-3">
-                      <h2 className="text-xl font-medium text-neutral-800">
+                      <h2 className="text-lg font-medium text-neutral-800">
                         {t("home.mockPriority")}
                       </h2>
                       <span className="rounded-full bg-neutral-100 px-2.5 py-1 text-xs font-medium text-neutral-600">
@@ -135,7 +135,7 @@ export default async function HomePage() {
                     {heroMessages.map((message) => (
                       <div
                         key={message.sender}
-                        className="grid min-h-14 grid-cols-[28px_minmax(112px,180px)_1fr_auto] items-center gap-3 px-5 text-sm hover:bg-[#f2f6fc]"
+                        className="grid min-h-13 grid-cols-[24px_minmax(105px,160px)_1fr_auto] items-center gap-2.5 px-4 text-[13px] hover:bg-[#f2f6fc]"
                       >
                         <message.icon className="h-4 w-4 text-neutral-300" />
                         <span className="truncate font-semibold text-neutral-900">
