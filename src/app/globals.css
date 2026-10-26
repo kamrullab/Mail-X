@@ -188,6 +188,33 @@ button {
 	cursor: pointer;
 }
 
+.mail-x-scrollbar {
+	scrollbar-width: thin;
+	scrollbar-color: transparent transparent;
+}
+.mail-x-scrollbar:hover {
+	scrollbar-color: color-mix(in srgb, var(--foreground) 28%, transparent) transparent;
+}
+.mail-x-scrollbar::-webkit-scrollbar {
+	width: 7px;
+	height: 7px;
+}
+.mail-x-scrollbar::-webkit-scrollbar-track {
+	background: transparent;
+}
+.mail-x-scrollbar::-webkit-scrollbar-thumb {
+	border: 2px solid transparent;
+	border-radius: 999px;
+	background: transparent;
+	background-clip: padding-box;
+}
+.mail-x-scrollbar:hover::-webkit-scrollbar-thumb {
+	background-color: color-mix(in srgb, var(--foreground) 28%, transparent);
+}
+.mail-x-scrollbar::-webkit-scrollbar-button {
+	display: none;
+}
+
 @keyframes mail-x-rise {
 	from { opacity: 0; transform: translateY(14px); }
 	to { opacity: 1; transform: translateY(0); }

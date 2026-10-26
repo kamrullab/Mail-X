@@ -15,7 +15,7 @@ export const sidebarBootstrapScript = `(() => {
 			if (keys.length === 1) width = localStorage.getItem(keys[0]);
 		}
 		if (minimal === "true") document.documentElement.style.setProperty("--persisted-sidebar-width", "72px");
-		else if (width !== null && Number.isFinite(Number(width))) document.documentElement.style.setProperty("--persisted-sidebar-width", Math.max(200, Math.min(480, Number(width))) + "px");
+		else if (width !== null && Number.isFinite(Number(width))) document.documentElement.style.setProperty("--persisted-sidebar-width", Math.max(200, Math.min(360, Number(width))) + "px");
 	} catch {}
 })();`;
 

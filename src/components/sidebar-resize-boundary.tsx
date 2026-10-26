@@ -20,7 +20,7 @@ export function SidebarResizeBoundary() {
 			onResizeStart={() => { startWidth.current = width; resizedWidth.current = width; }}
 			onResize={(delta) => {
 			if (minimal) return;
-			resizedWidth.current = Math.max(200, Math.min(480, window.innerWidth - 570, startWidth.current + delta));
+			resizedWidth.current = Math.max(200, Math.min(360, window.innerWidth - 570, startWidth.current + delta));
 			setWidth(resizedWidth.current);
 			}}
 			onResizeEnd={() => saveColumnWidth(userId, "sidebar", resizedWidth.current)}

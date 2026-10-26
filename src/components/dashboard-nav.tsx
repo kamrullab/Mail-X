@@ -233,8 +233,16 @@ export function DashboardNav({ className }: { className?: string }) {
   }
 
   return (
-    <SidebarScaffold className={className} header={<SidebarHeader href="/inbox" />} footer={<SidebarFooter />}>
-      {composeLink && <NavItem labelClassName="font-medium" link={composeLink} />}
+    <SidebarScaffold
+      className={className}
+      header={(
+        <>
+          <SidebarHeader href="/inbox" />
+          {composeLink && <div className="-mx-3 mt-2"><NavItem labelClassName="font-medium" link={composeLink} /></div>}
+        </>
+      )}
+      footer={<SidebarFooter />}
+    >
       {minimal && <hr className="mx-6 my-2 border-neutral-200/70" />}
       <ReorderableList
         storageKey="mailflare:nav:layout"

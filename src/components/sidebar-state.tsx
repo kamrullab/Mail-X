@@ -37,7 +37,7 @@ export function SidebarProvider({ children, expandedWidth = 260, mobileOverlay =
 
 	useLayoutEffect(() => {
 		setMinimal(readInitialSidebarMinimal());
-		setWidth(readInitialColumnWidth("sidebar", expandedWidth, 200, 480));
+		setWidth(readInitialColumnWidth("sidebar", expandedWidth, 200, 360));
 		const frame = requestAnimationFrame(() => setWidthReady(true));
 		return () => cancelAnimationFrame(frame);
 	}, [expandedWidth]);
@@ -68,7 +68,7 @@ export function SidebarProvider({ children, expandedWidth = 260, mobileOverlay =
 						setMinimal(savedMinimal);
 						saveInitialSidebarMinimal(savedMinimal);
 						localStorage.setItem(key, String(savedMinimal));
-						const savedWidth = readColumnWidth(userId, "sidebar", readInitialColumnWidth("sidebar", expandedWidth, 200, 480), 200, 480);
+						const savedWidth = readColumnWidth(userId, "sidebar", readInitialColumnWidth("sidebar", expandedWidth, 200, 360), 200, 360);
 						setWidth(savedWidth);
 						saveColumnWidth(userId, "sidebar", savedWidth);
 				} catch {
