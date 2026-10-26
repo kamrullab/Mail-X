@@ -438,6 +438,17 @@ button {
 	--color-lime-950: oklch(98.6% 0.031 120.757);
 }
 
+/* Chromium on Windows can paint native option popups with a light canvas even
+   when the page is dark. Give every native select menu an explicit dark palette. */
+.dark select {
+	color-scheme: dark;
+}
+.dark select option,
+.dark select optgroup {
+	background-color: #292a2d;
+	color: #e8eaed;
+}
+
 /* White text and borders on coloured surfaces (buttons, badges) stay white */
 .dark .text-white, .dark .hover\:text-white:hover, .dark .fill-white { color: #fff; fill: #fff; }
 .dark .border-white { border-color: #fff; }

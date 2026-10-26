@@ -9,5 +9,11 @@ export const DEFAULT_BRANDING: Branding = {
 export async function fetchBranding(): Promise<Branding> {
 	const response = await fetch("/api/branding", { cache: "no-store" });
 	if (!response.ok) return DEFAULT_BRANDING;
-	return (await response.json()) as Branding;
+	const branding = (await response.json()) as Branding;
+	if (branding.appName.trim().toLowerCase() !== "mailflare") return branding;
+	return {
+		...branding,
+		appName: DEFAULT_BRANDING.appName,
+		hasCustomIcon: false,
+	};
 }
