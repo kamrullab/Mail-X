@@ -28,7 +28,7 @@ export default async function HomePage() {
     <div className="home-color-shell relative min-h-dvh overflow-hidden bg-[linear-gradient(135deg,#f8fbff_0%,#eef4ff_48%,#f7f0ff_100%)] text-neutral-900">
       <div aria-hidden="true" className="mail-x-orb absolute -left-24 top-24 h-72 w-72 rounded-full bg-blue-300/30 blur-3xl" />
       <div aria-hidden="true" className="mail-x-orb mail-x-orb-delayed absolute -right-20 top-1/3 h-80 w-80 rounded-full bg-violet-300/25 blur-3xl" />
-      <header className="relative z-10 mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <header className="relative z-50 mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link
           href="/"
           className="group flex items-center gap-3"
