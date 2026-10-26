@@ -11,14 +11,14 @@ export function HomeHeroActions() {
 	const hasUser = !!useHomeAuth();
 
 	return (
-		<div className="mt-6 flex flex-col gap-3 sm:flex-row">
-			<Button size="lg" asChild className="rounded-full px-6">
+		<div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
+			<Button size="lg" asChild className="rounded-full bg-gradient-to-r from-blue-600 to-violet-600 px-6 shadow-lg shadow-blue-500/20 transition-transform hover:scale-[1.02]">
 				<Link href={hasUser ? "/inbox" : "/setup"}>
 					{hasUser ? t("home.openDashboard") : t("home.createAccount")}
 					<ArrowRight className="h-4 w-4" />
 				</Link>
 			</Button>
-			<Button size="lg" variant="outline" asChild className="rounded-full border-neutral-200 bg-white px-6">
+			<Button size="lg" variant="outline" asChild className="rounded-full border-white/80 bg-white/75 px-6 shadow-sm backdrop-blur transition-transform hover:scale-[1.02]">
 				<Link href={hasUser ? "/inbox" : "/login"}>
 					{hasUser ? t("home.viewInbox") : t("home.logIn")}
 				</Link>

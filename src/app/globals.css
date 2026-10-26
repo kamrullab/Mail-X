@@ -188,6 +188,44 @@ button {
 	cursor: pointer;
 }
 
+@keyframes mail-x-rise {
+	from { opacity: 0; transform: translateY(14px); }
+	to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes mail-x-float {
+	0%, 100% { transform: translateY(0); }
+	50% { transform: translateY(-7px); }
+}
+
+@keyframes mail-x-orb {
+	0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+	50% { transform: translate3d(18px, -14px, 0) scale(1.06); }
+}
+
+.mail-x-rise { animation: mail-x-rise 560ms cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+.mail-x-float { animation: mail-x-rise 620ms cubic-bezier(0.2, 0.8, 0.2, 1) both, mail-x-float 5s ease-in-out 700ms infinite; }
+.mail-x-orb { animation: mail-x-orb 9s ease-in-out infinite; }
+.mail-x-orb-delayed { animation-delay: -4.5s; }
+.home-mail-preview > div { animation: mail-x-rise 420ms ease-out both; }
+.home-mail-preview > div:nth-child(2) { animation-delay: 80ms; }
+.home-mail-preview > div:nth-child(3) { animation-delay: 160ms; }
+.home-mail-preview > div:nth-child(4) { animation-delay: 240ms; }
+.auth-brand-panel { background: linear-gradient(145deg, #1257d6 0%, #5b39d5 58%, #7427a8 100%); }
+.dark .home-color-shell,
+.dark .auth-color-shell {
+	background: linear-gradient(135deg, #171b28 0%, #1c2333 48%, #21172d 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.mail-x-rise,
+	.mail-x-float,
+	.mail-x-orb,
+	.home-mail-preview > div {
+		animation: none !important;
+	}
+}
+
 /* ── Dark theme ──────────────────────────────────────────────────────────────
    Screens use the Tailwind palette directly (bg-white, text-neutral-900, bg-blue-50…). Rather than
    editing every component, the dark theme remaps the palette variables under .dark: neutrals follow

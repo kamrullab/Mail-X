@@ -25,14 +25,18 @@ export default async function HomePage() {
 
   return (
     <HomeAuthProvider>
-    <div className="min-h-dvh bg-[#f6f8fc] text-neutral-900">
-      <header className="mx-auto flex h-14 w-full max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
+    <div className="home-color-shell relative min-h-dvh overflow-hidden bg-[linear-gradient(135deg,#f8fbff_0%,#eef4ff_48%,#f7f0ff_100%)] text-neutral-900">
+      <div aria-hidden="true" className="mail-x-orb absolute -left-24 top-24 h-72 w-72 rounded-full bg-blue-300/30 blur-3xl" />
+      <div aria-hidden="true" className="mail-x-orb mail-x-orb-delayed absolute -right-20 top-1/3 h-80 w-80 rounded-full bg-violet-300/25 blur-3xl" />
+      <header className="relative z-10 mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link
           href="/"
-          className="flex items-center gap-3"
+          className="group flex items-center gap-3"
           aria-label={t("home.homeLabel", { app: branding.appName })}
         >
-          <img src={branding.hasCustomIcon ? "/api/branding/icon" : "/icon-96.png"} height={32} width={32} alt="" />
+          <span className="rounded-xl bg-white/80 p-1.5 shadow-sm ring-1 ring-white/80 transition-transform group-hover:-rotate-3 group-hover:scale-105">
+            <img src={branding.hasCustomIcon ? "/api/branding/icon" : "/icon-96.png"} height={28} width={28} alt="" />
+          </span>
           <span className="text-base font-semibold tracking-tight">
             {branding.appName}
           </span>
@@ -55,22 +59,22 @@ export default async function HomePage() {
       </header>
 
       <main>
-        <section className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-4 py-6 sm:px-6 lg:min-h-[calc(100dvh-3.5rem)] lg:grid-cols-[0.82fr_1.18fr] lg:items-center lg:px-8 lg:py-5">
-          <div className="flex max-w-2xl flex-col justify-center">
-            <div className="mb-4 flex w-fit items-center gap-2 text-sm font-medium text-blue-800">
+        <section className="relative z-10 mx-auto grid max-w-6xl grid-cols-1 gap-8 px-4 py-5 sm:px-6 lg:min-h-[calc(100dvh-4rem)] lg:grid-cols-[0.84fr_1.16fr] lg:items-center lg:px-8 lg:py-4">
+          <div className="mail-x-rise flex max-w-2xl flex-col justify-center text-center lg:text-left">
+            <div className="mx-auto mb-4 flex w-fit items-center gap-2 rounded-full border border-blue-200/70 bg-white/70 px-3 py-1.5 text-sm font-semibold text-blue-800 shadow-sm backdrop-blur lg:mx-0">
               <ShieldCheck className="h-4 w-4" />
               {t("home.badge")}
             </div>
-            <h1 className="max-w-[12ch] text-4xl font-semibold leading-[0.98] tracking-tight text-neutral-950 sm:text-5xl lg:text-6xl">
+            <h1 className="mx-auto max-w-[12ch] bg-gradient-to-br from-neutral-950 via-blue-800 to-violet-700 bg-clip-text text-4xl font-bold leading-[0.98] tracking-[-0.045em] text-transparent sm:text-5xl lg:mx-0 lg:text-6xl">
               {t("home.headline")}
             </h1>
-            <p className="mt-5 max-w-xl text-base leading-7 text-neutral-600 lg:text-[17px]">
+            <p className="mx-auto mt-5 max-w-xl text-base leading-7 text-neutral-600 lg:mx-0 lg:text-[17px]">
               {t("home.subheadline")}
             </p>
             <HomeHeroActions />
           </div>
 
-          <div className="relative h-[clamp(390px,67dvh,490px)] overflow-hidden rounded-[1.75rem] border border-neutral-100 shadow-[0_24px_70px_-45px_rgba(30,64,175,0.55)]">
+          <div className="mail-x-float relative h-[clamp(380px,64dvh,475px)] overflow-hidden rounded-[1.75rem] border border-white/80 bg-white/75 shadow-[0_28px_80px_-38px_rgba(37,59,160,0.65)] backdrop-blur-xl">
             <div className="grid h-full grid-cols-[156px_1fr] bg-white">
               <aside className="hidden flex-col gap-1.5 bg-[#f6f8fc] px-3 py-4 sm:flex">
                 <div className="mb-3 flex items-center gap-3 px-3 text-neutral-700">
@@ -131,7 +135,7 @@ export default async function HomePage() {
                       {t("home.mockUpdated")}
                     </span>
                   </div>
-                  <div className="divide-y divide-neutral-100">
+                  <div className="home-mail-preview divide-y divide-neutral-100">
                     {heroMessages.map((message) => (
                       <div
                         key={message.sender}

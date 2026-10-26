@@ -136,7 +136,7 @@ export function LoginClient({ adding = false }: { adding?: boolean }) {
           : t("auth.signInDescription")
       }
     >
-      <form method="post" onSubmit={onSubmit} className="space-y-5">
+      <form method="post" onSubmit={onSubmit} className="space-y-4">
         <div className="space-y-2">
           <Label htmlFor="email">{t("auth.email")}</Label>
           <Input
@@ -170,7 +170,7 @@ export function LoginClient({ adding = false }: { adding?: boolean }) {
         <TurnstileField resetSignal={turnstileReset} />
         <Button
           type="submit"
-          className="h-11 w-full rounded-full px-6 active:scale-[0.98]"
+          className="h-11 w-full rounded-full bg-gradient-to-r from-blue-600 to-violet-600 px-6 shadow-lg shadow-blue-500/20 transition-transform hover:scale-[1.01] active:scale-[0.98]"
           disabled={loading}
         >
           {loading ? t("auth.signingIn") : t("auth.signIn")}

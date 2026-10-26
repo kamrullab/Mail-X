@@ -23,13 +23,17 @@ export function AuthShell({
   }, [branding.iconUrl]);
 
   return (
-    <div className="min-h-dvh bg-[#f1f4fa] px-4 py-6 text-neutral-900 sm:px-6 lg:flex lg:items-center lg:px-10 lg:py-10">
-      <main className="mx-auto grid w-full max-w-6xl overflow-hidden rounded-4xl bg-white lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)]">
-        <section className="flex flex-col p-7 sm:p-10 lg:p-14">
+    <div className="auth-color-shell relative flex min-h-dvh items-center overflow-hidden bg-[linear-gradient(135deg,#eef6ff_0%,#f6f0ff_52%,#edfbff_100%)] px-4 py-4 text-neutral-900 sm:px-6">
+      <div aria-hidden="true" className="mail-x-orb absolute -left-24 top-8 h-72 w-72 rounded-full bg-cyan-300/30 blur-3xl" />
+      <div aria-hidden="true" className="mail-x-orb mail-x-orb-delayed absolute -right-20 bottom-0 h-80 w-80 rounded-full bg-violet-300/30 blur-3xl" />
+      <main className="mail-x-rise relative mx-auto grid w-full max-w-4xl overflow-hidden rounded-[2rem] border border-white/70 bg-white/85 shadow-[0_30px_90px_-45px_rgba(59,37,160,0.6)] backdrop-blur-xl lg:min-h-[520px] lg:grid-cols-[0.88fr_1.12fr]">
+        <section className="auth-brand-panel relative flex flex-col overflow-hidden p-7 text-white sm:p-9 lg:p-10">
+          <div aria-hidden="true" className="absolute -right-16 -top-16 h-52 w-52 rounded-full border-[36px] border-white/10" />
+          <div aria-hidden="true" className="absolute -bottom-20 -left-16 h-56 w-56 rounded-full bg-cyan-300/20 blur-2xl" />
           <div className="flex items-center gap-2">
-            <span className="flex items-center justify-center overflow-hidden">
+            <span className="relative flex items-center justify-center overflow-hidden rounded-xl bg-white/95 p-1.5 shadow-lg shadow-blue-950/15">
               {iconFailed ? (
-                <Icon className="h-8 w-8 text-blue-600" />
+                <Icon className="h-7 w-7 text-blue-600" />
               ) : (
                 <img
                   src={iconUrl}
@@ -38,30 +42,31 @@ export function AuthShell({
                     else setIconFailed(true);
                   }}
                   alt=""
-                  className="h-8 w-8 object-contain"
+                  className="h-7 w-7 object-contain"
                 />
               )}
             </span>
-            <span className="truncate text-md font-semibold text-neutral-800">
+            <span className="relative truncate text-base font-semibold text-white">
               {branding.appName}
             </span>
           </div>
 
-          <div className="mt-2 lg:mt-8">
-            <h1 className="max-w-md text-xl font-medium leading-tight tracking-tight text-neutral-950 sm:text-4xl">
+          <div className="relative mt-7 lg:mt-auto lg:mb-auto">
+            <div className="mb-4 h-1 w-12 rounded-full bg-cyan-300" />
+            <h1 className="max-w-md text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl">
               {title}
             </h1>
             {description && (
-              <p className="mt-5 max-w-md text-base leading-7 text-neutral-600">
+              <p className="mt-4 max-w-md text-sm leading-6 text-blue-50/85 sm:text-base">
                 {description}
               </p>
             )}
           </div>
         </section>
 
-        <section className="flex min-w-0 flex-col justify-center p-7 sm:p-10 lg:p-14">
+        <section className="flex min-w-0 flex-col justify-center p-7 sm:p-9 lg:p-10">
           {steps && (
-            <div className="mb-7 flex flex-wrap gap-2 text-xs font-semibold">
+            <div className="mb-5 flex flex-wrap gap-2 text-xs font-semibold">
               {steps.map((step, index) => (
                 <span key={step.label} className="flex items-center gap-2">
                   <span
@@ -78,12 +83,12 @@ export function AuthShell({
               ))}
             </div>
           )}
-          <div className="w-full">{children}</div>
-          <div className="mt-8 max-w-48">
+          <div className="mx-auto w-full max-w-sm">{children}</div>
+          <div className="mx-auto mt-6 w-full max-w-sm">
             <LanguageSelector />
           </div>
           {footer && (
-            <div className="mt-8 text-sm font-medium text-blue-700">
+            <div className="mx-auto mt-6 w-full max-w-sm text-sm font-medium text-blue-700">
               {footer}
             </div>
           )}
