@@ -29,7 +29,7 @@ export function EmailHtmlRenderer({ html, className, preserveLeadingQuote = fals
 		const prepared = prepareEmailHtml(html, { reader: true, allowRemote });
 		setHasRemote(prepared.hasRemote);
 		const base = document.createElement("style");
-		base.textContent = `${BASE_STYLE}\n${prepared.rootTag} { display:block; font:14px/1.5 Arial,sans-serif; color:#202124; background:#fff; color-scheme:light; }\n${prepared.bodyTag} { display:block; }`;
+		base.textContent = `${BASE_STYLE}\n${prepared.rootTag} { display:block; font:14px/1.5 Arial,sans-serif; color:inherit; background:transparent; color-scheme:normal; }\n${prepared.bodyTag} { display:block; background:transparent; }`;
 		const content = document.createElement("template");
 		content.innerHTML = collapseQuotedEmailHtml(prepared.html, preserveLeadingQuote) ?? "";
 		root.replaceChildren(base, content.content);
