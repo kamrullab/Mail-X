@@ -41,7 +41,7 @@ export function PoweredBy({ className = "px-1" }: { className?: string }) {
       <p className={`${className} text-[11px] text-neutral-400`}>
         {t("navigation.poweredBy")}{" "}
         <a
-          href="https://kamrul.tech/"
+          href="https://github.com/kamrullab/Mail-X"
           target="_blank"
           className="hover:underline text-neutral-500"
           rel="noreferrer"
